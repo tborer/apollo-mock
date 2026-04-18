@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Apollo.io | Autonomy Control Center</title>
+  </head>
+  <body>
+    <div class="app-container">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo-icon"></div>
+          <div class="sidebar-logo">Apollo.io</div>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-item">
+            <span>Searcher</span>
+          </div>
+          <div class="nav-item">
+            <span>Engagement</span>
+          </div>
+          <div class="nav-item">
+            <span>Conversations</span>
+          </div>
+          <div class="nav-item active">
+            <span>Agent Control Center</span>
+          </div>
+          <div class="nav-item">
+            <span>Analytics</span>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+          <h1 class="page-title">Progressive Autonomy Control Center</h1>
+          <div class="topbar-actions">
+            <span class="badge-enterprise">Enterprise</span>
+            <div style="width: 32px; height: 32px; border-radius: 50%; background-color: var(--color-border); border: 2px solid #fff;"></div>
+          </div>
+        </header>
+
+        <!-- Dashboard View -->
+        <div class="dashboard-scroll">
+          
+          <!-- 1. Agent Orchestration Overview -->
+          <section class="grid-3 mb-8">
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">Outreach Tasks Automated</span>
+              </div>
+              <div class="metric-value">14,208</div>
+              <div class="metric-trend trend-up">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                +12% this week
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">Sequences Pending Review</span>
+                <span class="badge badge-intent" style="background-color: var(--color-danger); color: white;">3 Action Required</span>
+              </div>
+              <div class="metric-value">42</div>
+              <div class="metric-trend text-muted">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Avg review time: 1.2 hrs
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">Estimated Hours Saved</span>
+              </div>
+              <div class="metric-value">340h</div>
+              <div class="metric-trend trend-up">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                Equivalent to ~2 SDRs
+              </div>
+            </div>
+          </section>
+
+          <div class="grid-layout">
+            
+            <!-- Left Column: Controls & Queue -->
+            <div class="col-left" style="display: flex; flex-direction: column; gap: 32px;">
+              
+              <!-- 2. Autonomy Control Slider -->
+              <section class="card">
+                <div class="card-header mb-4">
+                  <div>
+                    <h2 class="font-semibold text-lg">Agent Autonomy Level</h2>
+                    <p class="text-sm text-muted">Configure freedom level for 'Lead Enrichment & Initial Outreach' workflow</p>
+                  </div>
+                </div>
+                
+                <div class="slider-container">
+                  <div class="slider-track">
+                    <div class="slider-fill" id="autonomy-fill"></div>
+                  </div>
+                  <div class="slider-stops">
+                    <div class="slider-stop" data-mode="0">
+                      <div class="stop-marker"></div>
+                      <span class="stop-label">Copilot</span>
+                    </div>
+                    <div class="slider-stop active" data-mode="1">
+                      <div class="stop-marker"></div>
+                      <span class="stop-label">Supervised</span>
+                    </div>
+                    <div class="slider-stop" data-mode="2">
+                      <div class="stop-marker"></div>
+                      <span class="stop-label">Autonomous</span>
+                    </div>
+                  </div>
+                  
+                  <div class="mode-description mt-4" id="mode-desc">
+                    <strong>Current Mode: Supervised.</strong> Agent executes low-risk data enrichment automatically. For engagement, it drafts emails based on intent signals but queues them for human review before sending.
+                  </div>
+                </div>
+              </section>
+
+              <!-- 3. RAG Audit Trail & Approval Queue -->
+              <section class="card flex-grow" style="flex-grow: 1;">
+                <div class="card-header mb-4">
+                  <div>
+                    <h2 class="font-semibold text-lg">Pending Review Queue</h2>
+                    <p class="text-sm text-muted">Actions proposed by Agent requiring human approval</p>
+                  </div>
+                </div>
+                
+                <div class="queue-list">
+                  <!-- Item 1 -->
+                  <div class="queue-item">
+                    <div class="queue-item-content">
+                      <div class="queue-item-title">Drafted sequence for "Series A Tech" cohort</div>
+                      <div class="queue-item-meta">
+                        <span>50 prospects</span>
+                        <span>•</span>
+                        <span class="badge badge-intent">High Intent Signal</span>
+                        <span>•</span>
+                        <span>Generated 10 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="queue-actions">
+                      <button class="btn btn-outline btn-view-citations" data-id="1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        View Citations
+                      </button>
+                      <button class="btn btn-success">Approve</button>
+                    </div>
+                  </div>
+
+                  <!-- Item 2 -->
+                  <div class="queue-item">
+                    <div class="queue-item-content">
+                      <div class="queue-item-title">Personalized outreach to John Doe (VP Sales, Acme Corp)</div>
+                      <div class="queue-item-meta">
+                        <span>1 prospect</span>
+                        <span>•</span>
+                        <span class="badge badge-enrich">Recent Job Change</span>
+                        <span>•</span>
+                        <span>Generated 45 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="queue-actions">
+                      <button class="btn btn-outline btn-view-citations" data-id="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        View Citations
+                      </button>
+                      <button class="btn btn-success">Approve</button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </section>
+
+            </div>
+
+            <!-- Right Column: Diagnostics -->
+            <div class="col-right">
+              
+              <!-- 4. Feedback Loop & Drift Monitor -->
+              <section class="card" style="height: 100%;">
+                <div class="card-header mb-2">
+                  <div>
+                    <h2 class="font-semibold text-lg">Drift Monitor</h2>
+                    <p class="text-sm text-muted">Human Override Rate (Last 7 Days)</p>
+                  </div>
+                </div>
+                
+                <div class="text-sm mb-4">
+                  If override rate exceeds 15%, retraining workflow is recommended. Current rate: <strong style="color: var(--color-success);">8.4%</strong>
+                </div>
+
+                <div class="chart-container">
+                  <div class="chart-bar" style="height: 30%;"><span class="chart-label">Mon</span></div>
+                  <div class="chart-bar" style="height: 45%;"><span class="chart-label">Tue</span></div>
+                  <div class="chart-bar" style="height: 20%;"><span class="chart-label">Wed</span></div>
+                  <div class="chart-bar alert" style="height: 75%;"><span class="chart-label">Thu</span></div>
+                  <div class="chart-bar" style="height: 40%;"><span class="chart-label">Fri</span></div>
+                  <div class="chart-bar" style="height: 25%;"><span class="chart-label">Sat</span></div>
+                  <div class="chart-bar" style="height: 35%;"><span class="chart-label">Sun</span></div>
+                </div>
+                
+                <div class="mt-6" style="margin-top: 32px;">
+                  <h3 class="text-sm font-semibold mb-2">Action Required</h3>
+                  <div style="background-color: var(--color-danger-light); padding: 12px; border-radius: 4px; font-size: 0.875rem; color: var(--color-danger);">
+                    <strong>Thursday Spike Detected:</strong> High override rate on 'Follow-up Sequence 2'. <a href="#" style="color: var(--color-danger); text-decoration: underline;">Review Prompts</a>
+                  </div>
+                </div>
+
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Overlay -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Side Panel: Citations -->
+      <div class="side-panel" id="citations-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Source Logic & Citations</h2>
+          <button class="close-btn" id="close-panel">&times;</button>
+        </div>
+        <div class="panel-content">
+          <p class="text-sm text-muted mb-6">The agent used the following data sources to draft the "Series A Tech" sequence.</p>
+          
+          <div class="citation-block">
+            <div class="citation-source">
+              <span class="source-icon" style="background-color: #0D1117;"></span>
+              Apollo Intent Data (Source 1)
+            </div>
+            <div class="citation-data">
+{
+  "signal_type": "Website Visit & Topic Search",
+  "topic": "Agentic Orchestration",
+  "intensity": "High",
+  "timestamp": "2026-04-18T10:23:00Z"
+}
+            </div>
+          </div>
+
+          <div class="citation-block">
+            <div class="citation-source">
+              <span class="source-icon" style="background-color: #1976D2;"></span>
+              CRM Integration: Salesforce (Source 2)
+            </div>
+            <div class="citation-data">
+SELECT status, last_contact 
+FROM Accounts 
+WHERE industry = 'Technology' 
+AND funding_stage = 'Series A';
+
+// Result: 50 accounts found with no contact in last 60 days.
+            </div>
+          </div>
+
+          <div class="citation-block">
+            <div class="citation-source">
+              <span class="source-icon" style="background-color: #FF9800;"></span>
+              Prompt Instruction (System)
+            </div>
+            <div class="citation-data" style="white-space: normal;">
+"You are a Senior SDR. Draft a sequence targeting Series A tech companies who have shown intent for Agentic Orchestration. Keep it under 100 words, reference their funding stage, and ask for a 15-minute sync."
+            </div>
+          </div>
+
+        </div>
+        <div style="padding: 24px; border-top: 1px solid var(--color-border); display: flex; gap: 12px; justify-content: flex-end;">
+           <button class="btn btn-outline" id="btn-edit-prompt">Edit Prompt</button>
+           <button class="btn btn-primary">Looks Good</button>
+        </div>
+      </div>
+
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
